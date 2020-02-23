@@ -176,7 +176,7 @@
                 visibleStu: true,
                 visibleTea: false,
                 visibleSch: false,
-//                schoolList:{},
+                schoolList:{},
                 departmentList:{},
                 classList:{},
                 stu_select_schoolS: '',

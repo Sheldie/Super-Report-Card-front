@@ -133,7 +133,7 @@
                     console.log(response);
                     if (response.data.code === 0) {
                         localStorage.setItem('id', response.data.data);
-                        let url = 'http://114.115.153.14:8080/SRC/user/authority';
+                        let url = 'http://119.3.176.172:8080/SRC/user/authority';
                         this.axios(url, {
                             params: {
                                 USER_ID: response.data.data
