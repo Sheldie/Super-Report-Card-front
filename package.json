@@ -15,7 +15,7 @@
     "js-md5": "^0.7.3",
     "mavon-editor": "^2.6.17",
     "qs": "latest",
-    "vue": "^2.5.21",
+    "vue": "^2.6.11",
     "vue-axios": "^2.1.4",
     "vue-cookies": "^1.5.12",
     "vue-cropperjs": "^3.0.0",
@@ -27,6 +27,6 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
     "@vue/cli-service": "^3.5.3",
-    "vue-template-compiler": "^2.5.21"
+    "vue-template-compiler": "^2.6.11"
   }
 }

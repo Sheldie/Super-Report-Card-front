@@ -223,18 +223,6 @@ export default new Router({
             component: resolve => require(['../components/page/Register.vue'], resolve)
         },
         {
-            path:'/register-stu',
-            component:resolve =>require(['../components/page/RegisterStu.vue'],resolve)
-        },
-        {
-            path:'/register-tea',
-            component:resolve =>require(['../components/page/RegisterTea.vue'],resolve)
-        },
-        {
-            path:'/register-sch',
-            component:resolve =>require(['../components/page/RegisterSch.vue'],resolve)
-        },
-        {
             path: '*',
             redirect: '/404'
         }

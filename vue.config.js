@@ -1,5 +1,8 @@
 module.exports = {
-    baseUrl: './',
+    // baseUrl: './',
+    publicPath:'./',
+    assetsDir: 'static',
+    parallel: false,
     productionSourceMap: false,
     devServer: {
         proxy: {

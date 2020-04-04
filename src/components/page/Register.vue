@@ -3,13 +3,13 @@
         <div class="ms-login">
             <div class="ms-title">超级成绩单 - 注册页面</div>
             <el-form :model="ruleForm" label-width="0px" class="ms-content" :rules="rule" v-enterToNext="true">
-                <el-form-item label="用户名" prop="username" labelWidth="100px" style="margin-bottom: 30px;">
-                    <el-input v-model="ruleForm.username" placeholder="username" style="width: 300px;">
+                <el-form-item label="用户名" prop="username" labelWidth="80px">
+                    <el-input v-model="ruleForm.username" placeholder="username">
                         <!--<el-button slot="prepend" icon="el-icon-lx-people"></el-button>-->
                     </el-input>
                 </el-form-item>
-                <el-form-item prop="password" label="密码" labelWidth="100px" style="margin-bottom: 30px;">
-                    <el-input type="password" placeholder="password" v-model="ruleForm.password" style="width: 300px;"
+                <el-form-item prop="password" label="密码" labelWidth="80px">
+                    <el-input type="password" placeholder="password" v-model="ruleForm.password"
                               @keyup.enter.native="login">
                         <!--<el-button slot="prepend" icon="el-icon-lx-lock"></el-button>-->
                     </el-input>
@@ -24,8 +24,8 @@
 
 
                 <!--学生-->
-                <el-form id="student" :model="ruleForm_Stu" :rules="rule_stu" ref="ruleForm"  class="demo-ruleForm" style="display: none; margin-top: 40px;">
-                    <el-form-item label="学校" prop="class" labelWidth="50px">
+                <el-form id="student" :model="ruleForm_Stu" :rules="rule_stu" ref="ruleForm"  class="demo-ruleForm" style="display: none;">
+                    <el-form-item label="学校" prop="school" labelWidth="80px">
                         <el-select type="password" v-model="stu_select_schoolS" placeholder="请选择学校">
                             <el-option
                                     v-for="item in schoolList"
@@ -36,7 +36,7 @@
                         </el-select>
                     </el-form-item>
 
-                    <el-form-item label="班级" prop="class" labelWidth="50px">
+                    <el-form-item label="班级" prop="class" labelWidth="80px">
                         <el-select type="password" v-model="ruleForm_Stu.class" placeholder="请选择班级">
                             <el-option
                                     v-for="item in classList"
@@ -46,12 +46,12 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <el-form-item label="姓名" prop="name" labelWidth="50px">
-                        <el-input v-model="ruleForm_Stu.name" style="width: 300px;">
+                    <el-form-item label="姓名" prop="name" labelWidth="80px">
+                        <el-input v-model="ruleForm_Stu.name">
                         </el-input>
                     </el-form-item>
-                    <el-form-item label="学号" prop="num" labelWidth="50px">
-                        <el-input v-model="ruleForm_Stu.num" style="width: 300px;">
+                    <el-form-item label="学号" prop="num" labelWidth="80px">
+                        <el-input v-model="ruleForm_Stu.num">
                         </el-input>
                     </el-form-item>
                     <el-form-item style="text-align: center;">
@@ -62,8 +62,8 @@
 
 
                 <!--教师-->
-                <el-form id="teacher" :model="ruleForm_Tea" :rules="rule_tea" ref="ruleForm" class="demo-ruleForm" style="display: none; margin-top: 40px;">
-                    <el-form-item label="学校" prop="class" labelWidth="50px">
+                <el-form id="teacher" :model="ruleForm_Tea" :rules="rule_tea" ref="ruleForm" class="demo-ruleForm" style="display: none;">
+                    <el-form-item label="学校" prop="school" labelWidth="80px">
                         <el-select v-model="stu_select_schoolT" placeholder="请选择学校">
                             <el-option
                                     v-for="item in schoolList"
@@ -74,7 +74,7 @@
                         </el-select>
                     </el-form-item>
 
-                    <el-form-item label="部门" prop="department" labelWidth="50px">
+                    <el-form-item label="部门" prop="department" labelWidth="80px">
                         <el-select v-model="ruleForm_Tea.department" placeholder="请选择部门">
                             <el-option
                                     v-for="item in departmentList"
@@ -84,24 +84,23 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <el-form-item label="姓名" prop="name" labelWidth="50px">
-                        <el-input v-model="ruleForm_Tea.name" style="width: 300px;">
+                    <el-form-item label="姓名" prop="name" labelWidth="80px">
+                        <el-input v-model="ruleForm_Tea.name">
                         </el-input>
                     </el-form-item>
-                    <el-form-item label="工号" prop="num" labelWidth="50px">
-                        <el-input v-model="ruleForm_Tea.num" style="width: 300px;">
+                    <el-form-item label="工号" prop="num" labelWidth="80px">
+                        <el-input v-model="ruleForm_Tea.num">
                         </el-input>
                     </el-form-item>
                     <el-form-item style="text-align: center;">
                         <el-button type="primary" @click="teacherR">教师注册</el-button>
-                        <!--<el-button @click="resetForm('ruleForm')">重置</el-button>-->
                     </el-form-item>
                 </el-form>
 
 
                 <!--学校-->
-                <el-form id="school" :model="ruleForm" :rules="rule_sch" ref="ruleForm" class="demo-ruleForm" style="display: none; margin-top: 40px;">
-                    <el-form-item label="国家" prop="class" labelWidth="60px">
+                <el-form id="school" :model="ruleForm_Sch" :rules="rule_sch" ref="ruleForm" class="demo-ruleForm" style="display: none;">
+                    <el-form-item label="国家" prop="country" labelWidth="80px">
                         <el-select v-model="ruleForm_Sch.country" placeholder="请选择国家">
                             <el-option
                                     v-for="item in countryList"
@@ -111,7 +110,7 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <el-form-item label="省份" prop="class" labelWidth="60px">
+                    <el-form-item label="省份" prop="province" labelWidth="80px">
                         <el-select v-model="ruleForm_Sch.province" placeholder="请选择省份">
                             <el-option
                                     v-for="item in provinceList"
@@ -121,7 +120,7 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <el-form-item label="城市" prop="class" labelWidth="60px">
+                    <el-form-item label="城市" prop="city" labelWidth="80px">
                         <el-select v-model="ruleForm_Sch.city" placeholder="请选择城市">
                             <el-option
                                     v-for="item in cityList"
@@ -131,33 +130,15 @@
                             </el-option>
                         </el-select>
                     </el-form-item>
-                    <!--<el-form-item label="国家" prop="country" labelWidth="60px">-->
-                        <!--<el-input v-model="ruleForm_Sch.country"></el-input>-->
-                    <!--</el-form-item>-->
-                    <!--<el-form-item label="省份" prop="province" labelWidth="60px">-->
-                        <!--<el-input v-model="ruleForm_Sch.province">-->
-                        <!--</el-input>-->
-                    <!--</el-form-item>-->
-                    <!--<el-form-item label="城市" prop="city" labelWidth="60px">-->
-                        <!--<el-input v-model="ruleForm_Sch.city">-->
-                        <!--</el-input>-->
-                    <!--</el-form-item>-->
-                    <el-form-item label="学校名" prop="schoolname" labelWidth="60px">
-                        <el-input v-model="ruleForm_Sch.name" style="width: 300px;">
+                    <el-form-item label="学校" prop="name" labelWidth="80px">
+                        <el-input v-model="ruleForm_Sch.name">
                         </el-input>
                     </el-form-item>
                     <el-form-item style="text-align: center;">
                         <el-button type="primary" @click="schoolR">学校注册</el-button>
-                        <!--<el-button @click="resetForm('ruleForm')">重置</el-button>-->
                     </el-form-item>
                 </el-form>
 
-
-                <!--<div class="login-btn">-->
-                    <!--<el-button type="primary" @click="register" style="width: 100px;">注册</el-button>-->
-                    <!--&lt;!&ndash;</el-button>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<el-button type="primary" @click="modify" style="width: 100px;margin-left: 30px">改密</el-button>&ndash;&gt;-->
-                <!--</div>-->
             </el-form>
         </div>
     </div>
@@ -208,33 +189,50 @@
                     ],
                     password: [
                         {required: true, message: '请输入密码', trigger: 'blur'},
-                        {min: 6, max: 12, message: '请输入6到12个字符', trigger: 'blur'}
+                        {min: 5, max: 12, message: '请输入5到12个字符', trigger: 'blur'}
                     ]
                 },
                 rule_stu:{
+                    school: [
+                        {required: true, message: '请选择学校', trigger: 'blur'}
+                    ],
                     class: [
-                        {required: true, message: '请选择学生班级', trigger: 'blur'}
+                        {required: true, message: '请选择班级', trigger: 'blur'}
                     ],
                     name: [
-                        {required: true, message: '请输入学生姓名', trigger: 'blur'}
+                        {required: true, message: '请输入姓名', trigger: 'blur'}
                     ],
                     num: [
-                        {required: true, message: '请输入学生学号', trigger: 'blur'}
+                        {required: true, message: '请输入学号', trigger: 'blur'}
                     ],
                 },
                 rule_tea:{
+                    school: [
+                        {required: true, message: '请选择学校', trigger: 'blur'}
+                    ],
                     department: [
-                        {required: true, message: '请选择教师部门', trigger: 'blur'}
+                        {required: true, message: '请选择部门', trigger: 'blur'}
                     ],
                     name: [
-                        {required: true, message: '请输入教师姓名', trigger: 'blur'}
+                        {required: true, message: '请输入姓名', trigger: 'blur'}
                     ],
                     num: [
-                        {required: true, message: '请输入教师工号', trigger: 'blur'}
+                        {required: true, message: '请输入工号', trigger: 'blur'}
                     ],
                 },
                 rule_sch:{
-
+                    country: [
+                        {required: true, message: '请选择国家', trigger: 'blur'}
+                    ],
+                    province: [
+                        {required: true, message: '请选择省份', trigger: 'blur'}
+                    ],
+                    city: [
+                        {required: true, message: '请选择城市', trigger: 'blur'}
+                    ],
+                    name: [
+                        {required: true, message: '请输入学校名', trigger: 'blur'}
+                    ]
                 },
                 countryList:[{
                     value: '中国',
@@ -327,56 +325,7 @@
 //                });
         },
         methods: {
-//            register() {
-//                if(this.ruleForm.radio!==3&&this.ruleForm.radio!==6&&this.ruleForm.radio!==9){
-//                    this.$notify.error({
-//                        title: '错误',
-//                        message: '请选择身份'
-//                    });
-//                    return;
-//                }
-//                let api = this.$api.userApi.register;
-//                api.data = {
-//                    username: this.ruleForm.username,
-//                    password: md5(this.ruleForm.password)
-//                };
-//                this.axios(api).then(response => {
-//                    if (response.data.code === 0) {
-//                        localStorage.setItem('username', this.ruleForm.username);
-//                        localStorage.setItem('id',response.data.data);
-//                        this.$message({
-//                            message: '注册成功',
-//                            type: 'success'
-//                        });
-//                        // this.ruleForm.password = ''
-//                        if(this.ruleForm.radio===3){
-//                            this.$router.push('/register-stu');
-//                        }else if(this.ruleForm.radio===6){
-//                            this.$router.push('/register-tea');
-//                        }else if(this.ruleForm.radio===9){
-//                            this.$router.push('/register-sch');
-//                        }
-//                    } else if (response.data.code === 1) {
-//                        this.$message.error('用户名已存在');
-//                        this.ruleForm.username = '';
-//                        this.ruleForm.password = ''
-//                    }
-//                })
-//            },
-//            submitForm(formName) {
-//                this.$refs[formName].validate((valid) => {
-//                    if (valid) {
-//                        localStorage.setItem('ms_username', this.ruleForm.username);
-//                        this.$router.push('/');
-//                    } else {
-//                        console.log('error submit!!');
-//                        return false;
-//                    }
-//                });
-//            },
             studentR(){
-//                console.log(this.ruleForm);
-//                console.log(this.ruleForm_Stu);
                 if(this.radioT !== 3 && this.radioT !== 6 && this.radioT !== 9){
                     this.$notify.error({
                         title: '错误',
@@ -405,7 +354,6 @@
                     password: md5(this.ruleForm.password)
                 };
                 this.axios(apiR).then(response => {
-                    // console.log(response)
                     if (response.data.code === 0) {
 //                        localStorage.setItem('username', this.ruleForm.username);
                         localStorage.setItem('id',response.data.data);
@@ -419,7 +367,6 @@
                             USER_ID:localStorage.getItem('id')
                         };
                         this.axios(api).then(response=>{
-//                            console.log(response);
                             if(response.data.code===0){
                                 this.$notify({
                                     title: '成功',
@@ -513,8 +460,8 @@
             },
 
             schoolR(){
-                console.log(this.ruleForm);
-                console.log(this.ruleForm_Sch);
+                // console.log(this.ruleForm);
+                // console.log(this.ruleForm_Sch);
                 if(this.radioT !== 3 && this.radioT !== 6 && this.radioT !== 9){
                     this.$notify.error({
                         title: '错误',
@@ -604,7 +551,7 @@
     }
 
     .ms-login {
-        width: 650px;
+        width: 40%;
         border-radius: 5px;
         background: rgba(255, 255, 255, 0.8);
         overflow: hidden;
@@ -616,6 +563,19 @@
 
     .ms-content {
         padding: 30px 30px;
+    }
+
+    .demo-ruleForm{
+        margin-top: 40px;
+        margin-left: 5px;
+    }
+
+    .el-input{
+        width: 40%;
+    }
+
+    .el-select{
+        width: 40%;
     }
 
     .login-btn {
@@ -632,5 +592,23 @@
         font-size: 12px;
         line-height: 30px;
         color: #fff;
+    }
+    @media screen and (max-width: 1169px){
+        .login-wrap{
+            background: #6495ED none;
+        }
+        .ms-login{
+            width: 80%;
+            top: 50px;
+        }
+        .ms-content{
+            padding: 10px 0px;
+        }
+        .el-input{
+            width: 80%;
+        }
+        .el-select{
+            width: 80%;
+        }
     }
 </style>

@@ -30,7 +30,7 @@
                     </el-button>
                     <!--<el-button type="primary" @click="modify" style="width: 100px;margin-left: 30px">改密</el-button>-->
                 </div>
-                <!--<p class="login-tips">Tips : 用户名和密码随便填。</p>-->
+                <p class="login-tips">示例（账号/密码）<br>管理员：admin / admin <br>教师：teacher / teacher<br>学生：student / student</p>
             </el-form>
         </div>
     </div>
@@ -56,27 +56,14 @@
                     ],
                     password: [
                         {required: true, message: '请输入密码', trigger: 'blur'},
-                        {min: 6, max: 12, message: '请输入6到12个字符', trigger: 'blur'}
+                        {min: 5, max: 12, message: '请输入5到12个字符', trigger: 'blur'}
                     ]
                 }
-                // rules: {
-                //     username: [
-                //         {required: true, message: '请输入用户名', trigger: 'blur'}
-                //     ],
-                //     password: [
-                //         {required: true, message: '请输入密码', trigger: 'blur'}
-                //     ]
-                // }
             }
         },
         created() {
             localStorage.clear()
         },
-        // directives:{
-        //     enterToNext:{
-        //
-        //     }
-        // },
         mounted() {
             // location.reload();
             // this.$router.push('/')
@@ -84,41 +71,6 @@
         methods: {
             register() {
                 this.$router.push('/register');
-//                if(this.ruleForm.radio!==3&&this.ruleForm.radio!==6&&this.ruleForm.radio!==9){
-//                    this.$notify.error({
-//                        title: '错误',
-//                        message: '请选择身份'
-//                    });
-//                    return;
-//                }
-//                let api = this.$api.userApi.register;
-//                api.data = {
-//                    username: this.ruleForm.username,
-//                    password: md5(this.ruleForm.password)
-//                };
-//                this.axios(api).then(response => {
-//                    // console.log(response)
-//                    if (response.data.code === 0) {
-//                        localStorage.setItem('username', this.ruleForm.username);
-//                        localStorage.setItem('id',response.data.data);
-//                        this.$message({
-//                            message: '注册成功',
-//                            type: 'success'
-//                        });
-//                        // this.ruleForm.password = ''
-//                        if(this.ruleForm.radio===3){
-//                            this.$router.push('/register-stu');
-//                        }else if(this.ruleForm.radio===6){
-//                            this.$router.push('/register-tea');
-//                        }else if(this.ruleForm.radio===9){
-//                            this.$router.push('/register-sch');
-//                        }
-//                    } else if (response.data.code === 1) {
-//                        this.$message.error('用户名已存在');
-//                        this.ruleForm.username = '';
-//                        this.ruleForm.password = ''
-//                    }
-//                })
             },
             login() {
                 // this.$router.push('/');
@@ -130,7 +82,7 @@
                 };
                 this.axios(api).then((response) => {
                     // this.$router.push('/');
-                    console.log(response);
+                    // console.log(response);
                     if (response.data.code === 0) {
                         localStorage.setItem('id', response.data.data);
                         let url = 'http://119.3.176.172:8080/SRC/user/authority';
@@ -142,7 +94,7 @@
                             localStorage.setItem('role', res.data.data);
                             localStorage.setItem('userName', this.ruleForm.username);
                             let role = localStorage.getItem('role');
-                            console.log(role);
+                            // console.log(role);
                             if (role === '3') {
                                 this.$router.push('/dashboard-s');
                             } else if (role === '2') {
@@ -155,10 +107,6 @@
                             message: '登录成功',
                             type: 'success'
                         });
-
-                        // }else{
-                        //     this.$router.push('/dashboard-s');
-                        // }
                     } else {
                         this.$message.error('用户名或密码错误');
                     }
@@ -172,7 +120,7 @@
                     username: 's'
                 };
                 this.axios(api).then(response => {
-                    console.log(response);
+                    // console.log(response);
                 })
             },
             submitForm(formName) {
@@ -181,7 +129,7 @@
                         localStorage.setItem('ms_username', this.ruleForm.username);
                         this.$router.push('/');
                     } else {
-                        console.log('error submit!!');
+                        // console.log('error submit!!');
                         return false;
                     }
                 });
@@ -197,7 +145,7 @@
         height: 100%;
         background-image: url(../../assets/img/login-bg.jpg);
         background-size: 100%;
-        background-repeat: no-repeat;
+        /*background-repeat: no-repeat;*/
     }
 
     .ms-title {
@@ -216,7 +164,7 @@
         width: 350px;
         margin: -190px 0 0 -175px;
         border-radius: 5px;
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.7);
         overflow: hidden;
     }
 
@@ -235,8 +183,14 @@
     }
 
     .login-tips {
-        font-size: 12px;
-        line-height: 30px;
-        color: #fff;
+        font-size: 13px;
+        line-height: 25px;
+        color: #000000;
+    }
+
+    @media screen and (max-width: 1169px){
+        .login-wrap{
+            background: #6495ED none;
+        }
     }
 </style>
